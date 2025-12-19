@@ -1,5 +1,6 @@
-<footer class="footer">
+<footer class="footer" id="footer">
   <div class="container footer-grid">
+    <!-- Brand -->
     <div class="footer-brand">
       <div class="footer-logo">
         <div class="logo-icon">🛡️</div>
@@ -11,30 +12,47 @@
       </p>
     </div>
 
+    <!-- Quick Links -->
     <div class="footer-links">
       <h4>Quick Links</h4>
-      <a href="#hero">About Us</a>
-      <a href="#services">Services</a>
-      <a href="#how-it-works">How it Works</a>
-      <a href="#offers">Pricing</a>
-      <a href="#footer">Contact</a>
+      <a data-nav="hero">About Us</a>
+      <a data-nav="services">Services</a>
+      <a data-nav="how-it-works">How it Works</a>
+      <a data-nav="footer">Contact</a>
     </div>
 
+    <!-- Services -->
     <div class="footer-links">
       <h4>Our Services</h4>
-      <a href="#">Balcony Safety Nets</a>
-      <a href="#">Invisible Grills</a>
-      <a href="#">Cloth Hangers</a>
-      <a href="#">Bird Spikes</a>
-      <a href="#">Staircase Safety</a>
+      <a data-service="balcony-safety-nets">Balcony Safety Nets</a>
+      <a data-service="invisible-grills">Invisible Grills</a>
+      <a data-service="cloth-hangers">Cloth Hangers</a>
+      <a data-service="bird-spikes">Bird Spikes</a>
+      <a data-service="staircase-safety">Staircase Safety</a>
     </div>
 
+    <!-- Contact -->
     <div class="footer-newsletter">
       <h4>Contact Us</h4>
       <div class="contact-info">
-        <span>📞 +91 9999999999</span>
-        <span>✉️ support@safeguard.com</span>
-        <span>📍 Bangalore, India</span>
+        <!-- Call -->
+        <a href="tel:+919535733411" class="contact-link">
+          📞 +91 95357 33411
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:support@safeguard.com" class="contact-link">
+          ✉️ support@safeguard.com
+        </a>
+
+        <!-- Location -->
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Bangalore%2C%20India"
+          target="_blank"
+          class="contact-link"
+        >
+          📍 Bangalore, India
+        </a>
       </div>
     </div>
   </div>

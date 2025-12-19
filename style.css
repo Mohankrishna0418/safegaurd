@@ -12,6 +12,15 @@ body {
   padding-top: 78px; /* Header height */
 }
 
+/* Make all nav & footer links clickable */
+.nav a,
+.footer a,
+.footer-links a,
+.logo-link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
 
 @media (max-width: 768px) {
   .hero,
@@ -56,6 +65,35 @@ body {
   align-items: center;
 }
 
+/* ----------------- Hamburger ----------------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #0f1a2a;
+  border-radius: 2px;
+}
+
+.hamburger {
+  position: relative;
+  z-index: 1001;
+}
+
+.nav {
+  z-index: 1000;
+}
+
+
+
+/* ----------------- Logo ----------------- */
 .logo {
   font-size: 22px;
   font-weight: 800;
@@ -103,6 +141,7 @@ body {
 
 .logo-link {
   text-decoration: none;
+  z-index: 1;
 }
 
 .nav {
@@ -123,22 +162,6 @@ body {
   color: #3c83f6;
 }
 
-/* ----------------- Hamburger ----------------- */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.hamburger span {
-  width: 24px;
-  height: 2px;
-  background: #0f1a2a;
-  border-radius: 2px;
-}
 
 
 /* ----------------- Hero ----------------- */
@@ -904,12 +927,26 @@ body {
 
 
 /* Contact */
-.contact-info span {
-  display: block;
-  font-size: 22px;
-  color: #475569;
-  margin-bottom: 8px;
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+
+.contact-link {
+  color: #0f1010;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+  color: #3c83f6;
+}
+
 
 /* Bottom Bar */
 .footer-bottom {

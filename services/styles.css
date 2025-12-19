@@ -1,24 +1,19 @@
-/* ----------------- Service Page ----------------- */
-/* Page Wrapper */
-.balcony-safety-nets {
-  padding: 60px 140px; /* same as hero/services/offers/stats/how-it-works */
+/* ================= GLOBAL SAFETY ================= */
+body {
+  overflow-x: hidden;
 }
-.bird-spikes {
-  padding: 60px 140px; /* same as hero/services/offers/stats/how-it-works */
+
+/* ================= SERVICE PAGE WRAPPERS ================= */
+.balcony-safety-nets,
+.bird-spikes,
+.cloth-hangers,
+.invisible-grills,
+.duct-area-nets,
+.staircase-safety {
+  padding: 60px 140px; /* Desktop spacing */
 }
-.cloth-hangers {
-  padding: 60px 140px; /* same as hero/services/offers/stats/how-it-works */
-}
-.invisible-grills {
-  padding: 60px 140px; /* same as hero/services/offers/stats/how-it-works */
-}
-.duct-area-nets{
-  padding: 60px 140px; /* same as hero/services/offers/stats/how-it-works */
-}
-.staircase-safety{
-  padding: 60px 140px; /* same as hero/services/offers/stats/how-it-works */
-}
-/* Back Link */
+
+/* ================= BACK LINK ================= */
 .back-link {
   font-size: 14px;
   color: #64748b;
@@ -33,16 +28,15 @@
   color: #3c83f6;
 }
 
-/* Hero Layout */
+/* ================= HERO SECTION ================= */
 .service-hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 60px;
-  padding: 0; /* padding handled by page wrapper */
 }
 
-/* Left Content */
+/* ================= LEFT CONTENT ================= */
 .service-content {
   max-width: 520px;
   text-align: left;
@@ -74,41 +68,58 @@
   margin-bottom: 28px;
 }
 
-/* CTA Button */
-.quote-btn {
+/* ================= CTA BUTTON ================= */
+.call-btn {
   background: #3b82f6;
-  color: #ffffff;
-  border: none;
-  padding: 14px 26px;
-  font-size: 15px;
-  border-radius: 28px;
-  cursor: pointer;
+}
+
+.whatsapp-btn {
+  background: #22c55e;
+}
+
+.quote-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .quote-btn:hover {
-  background: #2563eb;
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
-/* Right Image */
+
+/* ================= IMAGE ================= */
 .service-image {
   max-width: 480px;
 }
 
 .service-image img {
   width: 100%;
-  height: auto;
   border-radius: 24px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   object-fit: cover;
 }
 
-/* ----------------- Responsive ----------------- */
+/* ===================================================== */
+/* ================= RESPONSIVE FIXES ================== */
+/* ===================================================== */
+
+/* -------- TABLET -------- */
 @media (max-width: 1024px) {
-  .service-page {
-    padding: 70px 30px;
+  .balcony-safety-nets,
+  .bird-spikes,
+  .cloth-hangers,
+  .invisible-grills,
+  .duct-area-nets,
+  .staircase-safety {
+    padding: 50px 30px;
   }
 
   .service-hero {
@@ -121,24 +132,26 @@
     font-size: 36px;
   }
 
-  .service-content p {
-    font-size: 15px;
-  }
-
   .service-image {
-    max-width: 400px;
-  }
-
-  .service-image img {
-    max-width: 100%;
-    margin: 0 auto;
-    display: block;
+    max-width: 420px;
   }
 }
 
+/* -------- MOBILE -------- */
 @media (max-width: 768px) {
-  .service-page {
-    padding: 60px 20px;
+  .balcony-safety-nets,
+  .bird-spikes,
+  .cloth-hangers,
+  .invisible-grills,
+  .duct-area-nets,
+  .staircase-safety {
+    padding: 40px 16px; /* 🔥 FIXED EDGE GAP */
+  }
+
+  .back-link {
+    display: block;
+    text-align: left;
+    margin-bottom: 20px;
   }
 
   .service-content h1 {
@@ -154,17 +167,10 @@
   }
 }
 
+/* -------- SMALL MOBILE -------- */
 @media (max-width: 480px) {
-  .service-page {
-    padding: 50px 15px;
-  }
-
   .service-content h1 {
     font-size: 28px;
-  }
-
-  .service-content p {
-    font-size: 13px;
   }
 
   .service-image {
@@ -172,19 +178,17 @@
   }
 }
 
-/* ================= Service Details ================= */
+/* ================= SERVICE DETAILS ================= */
 .service-details {
   padding: 80px 0;
 }
 
-/* Grid */
 .details-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 }
 
-/* Card */
 .details-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -199,7 +203,6 @@
   color: #0f172a;
 }
 
-/* List */
 .details-card ul {
   list-style: none;
   padding: 0;
@@ -207,7 +210,6 @@
 
 .details-card li {
   display: flex;
-  align-items: flex-start;
   gap: 14px;
   font-size: 16px;
   color: #475569;
@@ -215,39 +217,30 @@
   line-height: 1.6;
 }
 
-/* Feature check (blue) */
 .details-card li::before {
   content: "✔";
-  font-size: 16px;
   color: #2563eb;
   font-weight: 700;
-  margin-top: 2px;
 }
 
-/* Benefit check (green) */
 .details-card .benefits li::before {
   color: #22c55e;
 }
 
-/* ================= Responsive ================= */
+/* ================= DETAILS RESPONSIVE ================= */
 @media (max-width: 1024px) {
   .service-details {
-    padding: 70px 20px;
+    padding: 60px 20px;
   }
 
   .details-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .details-card {
-    padding: 34px;
   }
 }
 
 @media (max-width: 640px) {
-  .service-details {
-    padding: 60px 15px;
+  .details-card {
+    padding: 30px;
   }
 
   .details-card h2 {
@@ -259,126 +252,49 @@
   }
 }
 
-
-/* ================= Our Work ================= */
+/* ================= OUR WORK ================= */
 .our-work {
   padding: 80px 0;
-  background: #ffffff;
 }
 
 .section-title {
   font-size: 32px;
   font-weight: 800;
   margin-bottom: 32px;
-  color: #0f172a;
 }
 
-/* Image Grid */
 .work-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-  margin-bottom: 60px;
 }
 
 .work-card {
   border-radius: 22px;
   overflow: hidden;
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.35s ease;
 }
 
 .work-card img {
   width: 100%;
   height: 240px;
   object-fit: cover;
-  display: block;
 }
 
-.work-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.14);
-}
-
-/* ================= CTA ================= */
-.work-cta {
-  background: #eef4ff;
-  border-radius: 28px;
-  padding: 60px 30px;
-  text-align: center;
-}
-
-.work-cta h3 {
-  font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 10px;
-  color: #0f172a;
-}
-
-.work-cta p {
-  font-size: 17px;
-  color: #475569;
-  margin-bottom: 28px;
-}
-
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #3b82f6;
-  color: #ffffff;
-  padding: 16px 32px;
-  border-radius: 999px;
-  font-size: 16px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.cta-btn:hover {
-  background: #2563eb;
-  transform: translateY(-2px);
-}
-
-/* ================= Responsive ================= */
+/* ================= OUR WORK RESPONSIVE ================= */
 @media (max-width: 1024px) {
   .work-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .work-cta h3 {
-    font-size: 28px;
-  }
 }
 
 @media (max-width: 640px) {
-  .our-work {
-    padding: 60px 0;
-  }
-
   .work-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
   }
 
   .work-card img {
     height: 220px;
-  }
-
-  .work-cta {
-    padding: 45px 20px;
-  }
-
-  .work-cta h3 {
-    font-size: 24px;
-  }
-
-  .work-cta p {
-    font-size: 14px;
-  }
-
-  .cta-btn {
-    width: 100%;
-    justify-content: center;
   }
 }
