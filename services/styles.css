@@ -120,11 +120,17 @@ body {
 /* -------- TABLET -------- */
 @media (max-width: 1024px) {
   .balcony-safety-nets,
-  .bird-spikes,
-  .cloth-hangers,
-  .invisible-grills,
-  .duct-area-nets,
-  .staircase-safety {
+.bird-spikes,
+.cloth-hangers,
+.invisible-grills,
+.duct-area-nets,
+.staircase-safety,
+.children-safety-nets,
+.pet-safety-nets,
+.pigeon-safety-nets,
+.stainless-steel,
+.polycarbonate,
+.sports-practice-nets {
     padding: 50px 30px;
   }
 
@@ -146,11 +152,17 @@ body {
 /* -------- MOBILE -------- */
 @media (max-width: 768px) {
   .balcony-safety-nets,
-  .bird-spikes,
-  .cloth-hangers,
-  .invisible-grills,
-  .duct-area-nets,
-  .staircase-safety {
+.bird-spikes,
+.cloth-hangers,
+.invisible-grills,
+.duct-area-nets,
+.staircase-safety,
+.children-safety-nets,
+.pet-safety-nets,
+.pigeon-safety-nets,
+.stainless-steel,
+.polycarbonate,
+.sports-practice-nets {
     padding: 40px 16px; /* 🔥 FIXED EDGE GAP */
   }
 
