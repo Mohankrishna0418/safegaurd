@@ -19,7 +19,7 @@ function loadSection(id, file, callback) {
 /* ================= Init ================= */
 document.addEventListener("DOMContentLoaded", () => {
   loadSection("header", "header.html", initHeaderAndLinks);
-  loadSection("hero", "hero.html");
+  loadSection("hero", "hero.html", initCallButton);
   loadSection("services", "services.html");
   loadSection("offers", "offers.html");
   loadSection("stats", "stats.html");
@@ -39,14 +39,12 @@ function initHeader() {
 
   if (!hamburger || !navMenu) return;
 
-  // Toggle hamburger
   hamburger.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
     navMenu.classList.toggle("active");
   });
 
-  // Handle menu item click
   navMenu.querySelectorAll("a[data-section]").forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -61,37 +59,45 @@ function initHeader() {
         location.pathname === "";
 
       if (isHome) {
-        const target = document.getElementById(sectionId);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
       } else {
         location.href = `../index.html#${sectionId}`;
       }
     });
   });
 
-  // Close menu when clicking outside
   document.addEventListener("click", () => {
     navMenu.classList.remove("active");
   });
 }
 
+/* ================= Call Now Button ================= */
+function initCallButton() {
+  const callBtn = document.getElementById("callBtn");
+  if (!callBtn) return;
+
+  callBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (window.innerWidth <= 768) {
+      window.location.href = "tel:+919535733411";
+    } else {
+      document.getElementById("footer")?.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
 
 /* ================= Link Fixer ================= */
 function fixGlobalLinks() {
-  // Section scroll links (header + footer)
   document.querySelectorAll("[data-nav]").forEach(link => {
     const section = link.dataset.nav;
     link.href = `${basePath}index.html#${section}`;
   });
 
-  // Home logo
   document.querySelectorAll("[data-home]").forEach(link => {
     link.href = `${basePath}index.html`;
   });
 
-  // Service pages
   document.querySelectorAll("[data-service]").forEach(link => {
     const page = link.dataset.service;
     link.href = `${basePath}services/${page}.html`;

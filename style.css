@@ -363,7 +363,21 @@ body {
 .bg-green { background: #ecfdf3; color: #16a34a; }
 .bg-orange { background: #fff7ed; color: #f97316; }
 .bg-pink { background: #fdf2f8; color: #db2777; }
-.bg-yellow { background: #fefce8; color: #a16207; }
+.bg-yellow {  background: #fefce8; color: #a16207; }
+
+
+.service-icon-img {
+  width: 30px;      /* reduced from 42px */
+  height: 30px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .service-icon-img {
+    width: 26px;
+    height: 26px;
+  }
+}
 
 
 /* ----------------- Special Offers ----------------- */
