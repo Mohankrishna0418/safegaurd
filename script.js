@@ -123,9 +123,11 @@ document.getElementById("enquiryForm").addEventListener("submit", async function
   };
 
   try {
-    const res = await fetch("../api/send-enquiry", {
+    const res = await fetch("/api/send-enquiry", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(data)
     });
 
@@ -133,10 +135,10 @@ document.getElementById("enquiryForm").addEventListener("submit", async function
 
     alert("Thank you! We will contact you shortly.");
     this.reset();
-    panel.classList.remove("active");
+    document.getElementById("enquiryPanel").classList.remove("active");
+
   } catch (err) {
-    alert("Failed to send enquiry. Please try again.");
     console.error(err);
+    alert("Failed to send enquiry. Please try again.");
   }
 });
-
