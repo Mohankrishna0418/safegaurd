@@ -105,28 +105,38 @@ function fixGlobalLinks() {
 }
 
 /* ================= Enquiry Form ================= */
+const openBtn = document.getElementById("openEnquiry");
+const closeBtn = document.getElementById("closeEnquiry");
+const panel = document.getElementById("enquiryPanel");
+
+openBtn.onclick = () => panel.classList.add("active");
+closeBtn.onclick = () => panel.classList.remove("active");
+
 document.getElementById("enquiryForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  const formData = {
+  const data = {
     name: this.name.value,
     phone: this.phone.value,
     email: this.email.value,
     message: this.message.value
   };
 
-  const response = await fetch("/api/send-enquiry", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData)
-  });
+  try {
+    const res = await fetch("../api/send-enquiry", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
 
-  if (response.ok) {
+    if (!res.ok) throw new Error("Request failed");
+
     alert("Thank you! We will contact you shortly.");
     this.reset();
-    document.getElementById("enquiryPanel").classList.remove("active");
-  } else {
-    alert("Failed to send enquiry.");
+    panel.classList.remove("active");
+  } catch (err) {
+    alert("Failed to send enquiry. Please try again.");
+    console.error(err);
   }
 });
 

@@ -1,35 +1,44 @@
-import nodemailer from "nodemailer";
 import "dotenv/config";
-
+import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method Not Allowed" });
-  }
-
-  const { name, phone, email, message } = req.body;
-
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.MAIL_USER, // owner's email
-      pass: process.env.MAIL_PASS  // app password
+  try {
+    if (req.method !== "POST") {
+      return res.status(200).send("API is working");
     }
-  });
 
-  await transporter.sendMail({
-    from: `"Website Enquiry" <${process.env.MAIL_USER}>`,
-    to: process.env.MAIL_USER,
-    subject: "New Enquiry from Website",
-    text: `
+    const { name, phone, email, message } = req.body;
+
+    if (!process.env.MAIL_USER || !process.env.MAIL_PASS) {
+      throw new Error("Missing email environment variables");
+    }
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
+      },
+    });
+
+    await transporter.sendMail({
+      from: `"Website Enquiry" <${process.env.MAIL_USER}>`,
+      to: process.env.MAIL_USER,
+      subject: "New Enquiry from Website",
+      text: `
 Name: ${name}
 Phone: ${phone}
 Email: ${email}
 Message: ${message}
-`
-  });
+      `,
+    });
 
-  res.status(200).json({ success: true });
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    console.error("EMAIL ERROR:", error);
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
 }
