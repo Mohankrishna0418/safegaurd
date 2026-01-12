@@ -9,7 +9,8 @@
 body {
   background: #f7f9fc;
   color: #0f1a2a;
-  padding-top: 78px; /* Header height */
+  padding-top: 167px; /* Header height */
+  background: linear-gradient(135deg, #eef4ff, #ffffff);
 }
 
 /* Make all nav & footer links clickable */
@@ -52,7 +53,7 @@ body {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(12px);
 
-  padding: 10px 0;
+  padding: 25px 0;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   z-index: 1000;
 }
@@ -111,7 +112,7 @@ body {
 .logo-icon {
   width: 36px;
   height: 36px;
-  background: #3c83f6; /* primary color */
+   /* primary color */
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -122,15 +123,22 @@ body {
   cursor: pointer;
 }
 
-/* SVG icon */
-.logo-svg {
-  width: 20px;
-  height: 20px;
-  color: #ffffff;
+.logo-img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
 }
 
+@media (max-width: 600px) {
+  .logo-img {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+
 .logo-text {
-  font-size: 22px;
+  font-size: 32px;
   font-weight: 600;
   color: #0f1a2a; /* Safe */
 }
@@ -168,7 +176,6 @@ body {
 .hero {
   display: flex;
   padding: 80px 0;
-  background: linear-gradient(135deg, #eef4ff, #ffffff);
 }
 
 .hero-flex {
@@ -774,6 +781,36 @@ body {
   margin-bottom: 14px;
 }
 
+.footer-newsletter {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-social {
+  margin-top: 12px;
+}
+
+
+.footer-social a {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+  transform: translateY(-3px);
+}
+
+.footer-social img {
+  width: 28px;
+  height: 28px;
+}
+
+
 
 /* Contact */
 .contact-info {
@@ -862,4 +899,63 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+.enquiry-float-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 14px 22px;
+  border-radius: 30px;
+  border: none;
+  background: #ffcc00;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,.3);
+  z-index: 9999;
+}
+
+.enquiry-panel {
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 360px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -5px 0 15px rgba(0,0,0,.2);
+  transition: .4s ease;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.enquiry-panel.active { right: 0; }
+
+.enquiry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-enquiry { cursor: pointer; font-size: 22px; }
+
+#enquiryForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#enquiryForm input, #enquiryForm textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#enquiryForm button {
+  background: #25d366;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }

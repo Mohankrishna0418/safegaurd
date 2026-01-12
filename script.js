@@ -103,3 +103,29 @@ function fixGlobalLinks() {
     link.href = `${basePath}services/${page}.html`;
   });
 }
+
+/* ================= Enquiry Form ================= */
+const openBtn = document.getElementById("openEnquiry");
+const closeBtn = document.getElementById("closeEnquiry");
+const panel = document.getElementById("enquiryPanel");
+
+openBtn.onclick = () => panel.classList.add("active");
+closeBtn.onclick = () => panel.classList.remove("active");
+
+document.getElementById("enquiryForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+
+  fetch("/", {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(() => {
+    alert("Thank you! We will contact you shortly.");
+    form.reset();
+    panel.classList.remove("active");
+  })
+  .catch(() => alert("Submission failed. Please try again."));
+});
+
