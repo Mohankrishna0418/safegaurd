@@ -103,3 +103,12 @@ function fixGlobalLinks() {
     link.href = `${basePath}services/${page}.html`;
   });
 }
+
+
+(function addFavicon() {
+  const link = document.createElement("link");
+  link.rel = "icon";
+  link.type = "image/png";
+  link.href = "/assets/logo-2.png";
+  document.head.appendChild(link);
+})();
