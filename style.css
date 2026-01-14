@@ -738,7 +738,7 @@ body {
 .footer-logo .logo-icon {
   width: 42px;
   height: 42px;
-  background: #3c83f6;
+  /* background: #3c83f6; */
   color: #fff;
   border-radius: 12px;
   display: flex;
