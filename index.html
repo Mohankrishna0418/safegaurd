@@ -7,33 +7,6 @@
     <link rel="icon" type="image/png" href="assets/logo-2.png" />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <!-- Floating Enquiry Button -->
-  <button class="enquiry-float-btn" id="openEnquiry">Enquire</button>
-  <div class="enquiry-panel" id="enquiryPanel">
-    <div class="enquiry-header">
-      <h3>Send Enquiry</h3>
-      <span class="close-enquiry" id="closeEnquiry">✕</span>
-    </div>
-
-    <form
-      id="enquiryForm"
-      name="enquiry"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-    >
-      <input type="hidden" name="form-name" value="enquiry" />
-      <p hidden><input name="bot-field" /></p>
-
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="tel" name="phone" placeholder="Phone Number" required />
-      <input type="email" name="email" placeholder="Email Address" required />
-      <textarea name="message" placeholder="Your Requirement"></textarea>
-
-      <button type="submit">Submit Enquiry</button>
-    </form>
-  </div>
-
   <body>
     <!-- Sections will be loaded here -->
     <div id="header"></div>
