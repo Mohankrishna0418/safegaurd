@@ -74,18 +74,34 @@ function initHeader() {
 /* ================= Call Now Button ================= */
 function initCallButton() {
   const callBtn = document.getElementById("callBtn");
-  if (!callBtn) return;
+  const footer = document.getElementById("footer");
 
-  callBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+  if (!callBtn || !footer) return;
 
-    if (window.innerWidth <= 768) {
-      window.location.href = "tel:+919535733411";
-    } else {
-      document.getElementById("footer")?.scrollIntoView({ behavior: "smooth" });
+  callBtn.addEventListener("click", function (e) {
+    // Desktop view
+    if (window.innerWidth > 768) {
+      e.preventDefault();
+      footer.scrollIntoView({ behavior: "smooth" });
     }
+    // Mobile view → default tel: works automatically
   });
 }
+
+// Ensure it runs after page & sections load
+document.addEventListener("DOMContentLoaded", initCallButton);
+
+
+function handleCallClick(e) {
+  // Desktop view → scroll to footer
+  if (window.innerWidth > 768) {
+    e.preventDefault(); // stop tel:
+    const footer = document.getElementById("footer");
+    footer?.scrollIntoView({ behavior: "smooth" });
+  }
+  // Mobile view → tel: works normally
+}
+
 
 /* ================= Link Fixer ================= */
 function fixGlobalLinks() {
