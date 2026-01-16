@@ -26,7 +26,6 @@ body {
 @media (max-width: 768px) {
   .hero,
   .services,
-  .offers,
   .stats,
   .how-it-works {
     padding: 40px 0;
