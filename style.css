@@ -32,6 +32,15 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .hero,
+  .services,
+  .stats,
+  .how-it-works,
+  .footer {
+    width: 100%;
+  }
+}
 
 
 /* ----------------- Utilities ----------------- */
