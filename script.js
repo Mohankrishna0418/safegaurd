@@ -128,3 +128,27 @@ function fixGlobalLinks() {
   link.href = "/assets/logo-2.png";
   document.head.appendChild(link);
 })();
+
+
+const fs = require('fs');
+const path = require('path');
+
+const servicesDir = path.join(__dirname, 'services');
+
+fs.readdir(servicesDir, (err, files) => {
+  if (err) return console.error('Error reading services folder:', err);
+
+  files.forEach((file) => {
+    if (file.endsWith('.html')) {
+      const filePath = path.join(servicesDir, file);
+      let content = fs.readFileSync(filePath, 'utf8');
+
+      const updated = content.replace(/href=["']\/style\.css["']/g, 'href="../style.css"');
+
+      if (updated !== content) {
+        fs.writeFileSync(filePath, updated, 'utf8');
+        console.log(`✔ Updated: ${file}`);
+      }
+    }
+  });
+});

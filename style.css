@@ -27,7 +27,8 @@ body {
   .hero,
   .services,
   .stats,
-  .how-it-works {
+  .how-it-works,
+  .footer  {
     padding: 40px 0;
   }
 }
