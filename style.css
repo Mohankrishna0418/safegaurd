@@ -451,7 +451,42 @@ body {
 /* Mobile */
 @media (max-width: 640px) {
   .services-grid {
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .services .container {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .service-card {
+    width: 100%;
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+}
+
+
+@media (max-width: 640px) {
+  .services .container {
+    width: 100%;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .service-card {
+    width: 100%;
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    gap: 18px;
   }
 }
 
